@@ -1,0 +1,44 @@
+{
+	"root": true,
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"plugins": [
+		"node",
+		"standard"
+	],
+	"extends": [
+		"standard",
+		"plugin:node/recommended"
+	],
+	"rules": {
+		"array-bracket-spacing": [
+			"error",
+			"never"
+		],
+		"arrow-parens": [
+			"error",
+			"as-needed"
+		],
+		"comma-dangle": [
+			"error",
+			"always-multiline"
+		],
+		"indent": [
+			"error",
+			"tab"
+		],
+		"no-process-exit": "off",
+		"no-tabs": "off",
+		"object-curly-spacing": [
+			"error",
+			"never"
+		],
+		"node/prefer-global/buffer": "error",
+		"node/prefer-global/console": "error",
+		"node/prefer-global/process": "error",
+		"node/prefer-global/url": "error",
+		"node/prefer-global/url-search-params": "error"
+	}
+}

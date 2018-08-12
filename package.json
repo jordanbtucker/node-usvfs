@@ -1,0 +1,48 @@
+{
+  "name": "node-usvfs",
+  "version": "1.0.0",
+  "description": "Node.js bindings for USVFS",
+  "private": true,
+  "main": "bindings.js",
+  "files": [
+    "bindings.js",
+    "build/Release/bindings.node",
+    "build/Release/usvfs_x64.dll",
+    "build/Release/usvfs_proxy.exe"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "node-gyp build",
+    "build-boost": "cd deps/boost && bootstrap && b2 --with-date_time --with-coroutine --with-filesystem --with-thread --with-log --with-locale address-model=64 architecture=x86 link=static runtime-link=static",
+    "build-udist86-optable": "cd deps/usvfs/udis86 && python scripts/ud_itab.py docs/x86/optable.xml libudis86",
+    "coverage": "npm test && tap --coverage-report=html",
+    "dev-setup": "npm run build-boost && npm run build-udist86-optable && npm run rebuild",
+    "lint": "eslint --fix .",
+    "rebuild": "node-gyp rebuild",
+    "test": "tap test -Rspec --cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanbtucker/node-usvfs.git"
+  },
+  "author": "Jordan Tucker <jordanbtucker@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordanbtucker/node-usvfs/issues"
+  },
+  "homepage": "https://github.com/jordanbtucker/node-usvfs#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nan": "^2.10.0",
+    "sinon": "^6.1.5",
+    "tap": "^12.0.1"
+  }
+}

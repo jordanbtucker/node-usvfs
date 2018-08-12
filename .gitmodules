@@ -1,0 +1,6 @@
+[submodule "deps/usvfs"]
+	path = deps/usvfs
+	url = https://github.com/modorganizer2/usvfs
+[submodule "deps/boost"]
+	path = deps/boost
+	url = https://github.com/boostorg/boost
